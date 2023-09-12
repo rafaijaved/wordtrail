@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wordle - WordTrail</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="taskbar">
+      <div class="logo">
+        <h2 onclick="window.location.href='index.html'">WordTrail</h2>
+      </div>
+      <div class="list-items">
+        <ul class="taskbar-list">
+          <li class="taskbar-li" onclick="window.location.href='index.html'">
+            Home
+          </li>
+          <li class="taskbar-li">Blog</li>
+          <li class="taskbar-li" onclick="toggleCategories()">Categories</li>
+          <li class="taskbar-li">About</li>
+        </ul>
+      </div>
+      <div id="categoriesDropdown" class="categories-dropdown">
+        <ul>
+          <li onclick="window.location.href='Wordle.html'">Wordle</li>
+          <li>Words With Friends</li>
+          <li>Scrabble</li>
+          <li>CrossWord</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <h1>The Wordle Phenomenon</h1>
+      <p>
+        Wordle, a simple yet captivating word puzzle game, has taken the
+        internet by storm. But what is it about this game that has made it so
+        popular? Let's dive in.
+      </p>
+
+      <h2>Introduction to Wordle</h2>
+      <p>
+        Wordle is a daily word puzzle game where players have six attempts to
+        guess a five-letter word. After each guess, the game provides feedback
+        using a color-coded system: green for letters that are in the correct
+        position, yellow for letters that are in the word but not in the correct
+        position, and gray for letters that aren't in the word at all.
+      </p>
+
+      <h2>Why is Wordle so Popular?</h2>
+      <p>
+        The beauty of Wordle lies in its simplicity. The game doesn't have
+        flashy graphics, timers, or complex rules. Yet, its daily challenge
+        format and the satisfaction of solving the puzzle have made it a daily
+        ritual for many.
+      </p>
+
+      <h3>Examples of Gameplay</h3>
+      <p>
+        Let's say the word for the day is "BRICK". A player might start by
+        guessing "WATER". The letters "A" and "R" would be grayed out,
+        indicating they aren't in the word. The letter "E" would be yellow,
+        indicating it's in the word but not in the right position. The player
+        then knows they need to adjust their guess based on this feedback. As
+        they continue to guess, they'll use the feedback to get closer to the
+        correct word.
+      </p>
+
+      <h2>Conclusion</h2>
+      <p>
+        Wordle's charm is a testament to the fact that sometimes, less is more.
+        In a world filled with complex games and apps, Wordle stands out with
+        its straightforward design and engaging gameplay. Whether you're a
+        seasoned wordsmith or just looking for a fun daily challenge, Wordle is
+        sure to captivate your attention.
+      </p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

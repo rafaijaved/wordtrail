@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WordTrail</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="taskbar">
+      <div class="logo">
+        <h2 onclick="window.location.href='index.html'">WordTrail</h2>
+      </div>
+      <div class="list-items">
+        <ul class="taskbar-list">
+          <li class="taskbar-li" onclick="window.location.href='index.html'">
+            Home
+          </li>
+          <li class="taskbar-li">Blog</li>
+          <li class="taskbar-li" onclick="toggleCategories()">Categories</li>
+          <li class="taskbar-li">About</li>
+        </ul>
+      </div>
+      <div id="categoriesDropdown" class="categories-dropdown">
+        <ul>
+          <li onclick="window.location.href='Wordle.html'">Wordle</li>
+          <li>Words With Friends</li>
+          <li>Scrabble</li>
+          <li>CrossWord</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <h1>WordTrail</h1>
+      <div class="input-group">
+        <input
+          type="text"
+          id="startLetter"
+          placeholder="Start letter"
+          maxlength="1"
+        />
+        <input
+          type="text"
+          id="endLetter"
+          placeholder="End letter"
+          maxlength="1"
+        />
+      </div>
+      <div class="buttons">
+        <button onclick="fetchWords()">Find Words</button>
+        <button onclick="resetWords()" class="reset-button">Reset</button>
+      </div>
+
+      <ul id="wordList"></ul>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
