@@ -1,18 +1,24 @@
 function fetchWords() {
   const startLetter = document.getElementById("startLetter").value;
   const endLetter = document.getElementById("endLetter").value;
+  const wordLength = parseInt(document.getElementById("wordLength").value);
   const wordList = document.getElementById("wordList");
 
+  let apiUrl = `https://api.datamuse.com/words?sp=${startLetter}*${endLetter}`;
+
   if (startLetter && endLetter) {
-    fetch(`https://api.datamuse.com/words?sp=${startLetter}*${endLetter}`)
+    fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
         wordList.innerHTML = "";
-        if (data.length === 0) {
+        const filteredData = wordLength
+          ? data.filter((wordObj) => wordObj.word.length === wordLength)
+          : data;
+        if (filteredData.length === 0) {
           wordList.innerHTML =
             '<div class="placeholder-message">No words found.</div>';
         } else {
-          data.forEach((wordObj) => {
+          filteredData.forEach((wordObj) => {
             const li = document.createElement("li");
             li.textContent = wordObj.word;
             wordList.appendChild(li);
