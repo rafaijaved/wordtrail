@@ -57,9 +57,8 @@ h2:hover {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: calc(100vh - 60px);
   align-items: center;
-  justify-content: center;
+  padding: 40px 0;
 }
 
 h1 {
@@ -141,14 +140,17 @@ button:hover {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
-  width: 80%;
   margin: 0 auto;
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.09);
-  overflow-y: auto;
-  max-height: 400px;
+  width: 60%;
+  margin-right: 20px;
+}
+
+#wordList li {
+  cursor: pointer;
 }
 
 .categories-dropdown {
@@ -184,4 +186,27 @@ button:hover {
 .placeholder-message {
   text-align: center;
   color: #aaa;
+}
+
+.word-details {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.09);
+  display: none;
+  width: 35%;
+}
+
+.word-details h2 {
+  margin-bottom: 10px;
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }

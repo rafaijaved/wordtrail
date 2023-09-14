@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WordTrail</title>
+    <title>Dictionary - WordTrail</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -24,7 +24,6 @@
       <div id="categoriesDropdown" class="categories-dropdown">
         <ul>
           <li onclick="window.location.href='Wordle.html'">Wordle</li>
-          <li onclick="window.location.href='Dictionary.html'">Dictionary</li>
           <li>Words With Friends</li>
           <li>Scrabble</li>
           <li>CrossWord</li>
@@ -32,7 +31,7 @@
       </div>
     </div>
     <div class="container">
-      <h1>WordTrail</h1>
+      <h1>Dictionary</h1>
       <div class="input-group">
         <input
           type="text"
@@ -54,11 +53,19 @@
         />
       </div>
       <div class="buttons">
-        <button onclick="fetchWords()">Find Words</button>
+        <button onclick="fetchWordsForDictionary()">Find Words</button>
         <button onclick="resetWords()" class="reset-button">Reset</button>
       </div>
 
-      <ul id="wordList"></ul>
+      <div class="content-wrapper">
+        <ul id="wordList"></ul>
+        <div id="wordDetails" class="word-details">
+          <h2 id="wordTitle"></h2>
+          <p id="wordDefinition"></p>
+          <p id="wordPartOfSpeech"></p>
+          <p id="wordPronunciation"></p>
+        </div>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
