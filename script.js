@@ -55,7 +55,7 @@ function fetchWordsForDictionary() {
   const wordLength = parseInt(document.getElementById("wordLength").value);
   const wordTableBody = document.querySelector(".dictionary-wordlist");
 
-  let apiUrl = `https://api.datamuse.com/words?sp=${startLetter}*${endLetter}&md=dpr`; // Added 'p' for pronunciation
+  let apiUrl = `https://api.datamuse.com/words?sp=${startLetter}*${endLetter}&md=dpr`;
 
   if (startLetter && endLetter) {
     fetch(apiUrl)

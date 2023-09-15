@@ -97,9 +97,9 @@ h1 {
 input {
   padding: 10px;
   border-radius: 20px;
-  border: 1px solid #ccc; /* Added a subtle border */
+  border: 1px solid #ccc;
   height: 40px;
-  flex: 1; /* To ensure equal width */
+  flex: 1;
 }
 
 .buttons {
@@ -133,7 +133,7 @@ button:hover {
 .main-wordlist {
   list-style-type: none;
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* This will create 4 columns */
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   margin: 0 auto;
   border: 1px solid #ccc;
