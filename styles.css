@@ -9,8 +9,7 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-  margin: 0;
-  padding: 0;
+  background-color: #f4f4f4;
 }
 
 .taskbar {
@@ -19,8 +18,37 @@ body {
   padding-inline: 30px;
   height: 60px;
   align-items: center;
+  background-color: #fff;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.09);
   z-index: 1000;
+}
+
+.categories-dropdown {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.09);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  width: 100%;
+}
+
+.categories-dropdown ul {
+  align-items: center;
+  list-style-type: none;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+}
+
+.categories-dropdown ul > li:hover {
+  color: #fb8500;
 }
 
 h2 {
@@ -30,11 +58,6 @@ h2 {
 
 h2:hover {
   color: #fba646;
-  transition: ease;
-  -webkit-transition: ease-in-out 0.2s;
-  -moz-transition: ease;
-  -ms-transition: ease;
-  -o-transition: ease;
 }
 
 .taskbar-list {
@@ -46,19 +69,16 @@ h2:hover {
 .taskbar-list li:hover {
   color: #fb8500;
   cursor: pointer;
-  transition: ease-in-out 0.2s;
-  -webkit-transition: ease-in-out 0.2s;
-  -moz-transition: ease-in-out 0.2s;
-  -ms-transition: ease-in-out 0.2s;
-  -o-transition: ease-in-out 0.2s;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-  padding: 40px 0;
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
@@ -69,64 +89,40 @@ h1 {
 }
 
 .input-group {
-  padding: 20px;
   display: flex;
   gap: 10px;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 40px;
-  background-color: #edf2f4;
-  width: 60%;
-  height: 100px;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 input {
   padding: 10px;
   border-radius: 20px;
-  border: none;
+  border: 1px solid #ccc; /* Added a subtle border */
   height: 40px;
-  width: 35%;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
+  flex: 1; /* To ensure equal width */
 }
 
 .buttons {
   display: flex;
   justify-content: center;
-  padding-bottom: 40px;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 button {
-  padding: 10px 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
   background-color: #333;
   color: #fff;
-  border: none;
-  border-radius: 20px;
   cursor: pointer;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
 }
 
 button:hover {
-  background-color: #fb8500;
-  transition: ease-in-out 0.2s;
-  -webkit-transition: ease-in-out 0.2s;
-  -moz-transition: ease-in-out 0.2s;
-  -ms-transition: ease-in-out 0.2s;
-  -o-transition: ease-in-out 0.2s;
+  background-color: #555;
 }
 
 .reset-button {
-  margin-left: 10px;
   background-color: #fb8500;
 }
 
@@ -134,79 +130,60 @@ button:hover {
   background-color: #fba646;
 }
 
-#wordList {
+.main-wordlist {
   list-style-type: none;
-  padding: 20px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr); /* This will create 4 columns */
   gap: 10px;
   margin: 0 auto;
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.09);
-  width: 60%;
-  margin-right: 20px;
+  width: 80%;
+  margin-top: 20px;
 }
 
-#wordList li {
-  cursor: pointer;
-}
-
-.categories-dropdown {
-  position: fixed;
-  top: 60px;
-  left: 0;
-  right: 0;
+.main-wordlist li {
+  padding: 10px;
   background-color: #fff;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.09);
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease-in-out;
-}
-
-.categories-dropdown ul {
-  list-style-type: none;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  text-align: center;
   cursor: pointer;
-  transition: ease-in-out 0.2s;
-  -webkit-transition: ease-in-out 0.2s;
-  -moz-transition: ease-in-out 0.2s;
-  -ms-transition: ease-in-out 0.2s;
-  -o-transition: ease-in-out 0.2s;
+  transition: background-color 0.3s;
 }
 
-.categories-dropdown ul > li:hover {
-  color: #fb8500;
+.main-wordlist li:hover {
+  background-color: #f9f9f9;
+}
+
+.dictionary-wordlist {
+  list-style-type: none;
+  padding: 20px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+#wordTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#wordTable th,
+#wordTable td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+#wordTable th {
+  background-color: #e0e0e0;
 }
 
 .placeholder-message {
   text-align: center;
   color: #aaa;
-}
-
-.word-details {
-  margin-top: 20px;
-  margin-bottom: 50px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
   padding: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.09);
-  display: none;
-  width: 35%;
-}
-
-.word-details h2 {
-  margin-bottom: 10px;
-}
-
-.content-wrapper {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
 }

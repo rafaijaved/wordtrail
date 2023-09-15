@@ -2,7 +2,7 @@ function fetchWords() {
   const startLetter = document.getElementById("startLetter").value;
   const endLetter = document.getElementById("endLetter").value;
   const wordLength = parseInt(document.getElementById("wordLength").value);
-  const wordList = document.getElementById("wordList");
+  const wordList = document.querySelector(".main-wordlist");
 
   let apiUrl = `https://api.datamuse.com/words?sp=${startLetter}*${endLetter}`;
 
@@ -16,7 +16,7 @@ function fetchWords() {
           : data;
         if (filteredData.length === 0) {
           wordList.innerHTML =
-            '<div class="placeholder-message">No words found.</div>';
+            '<li class="placeholder-message">No words found.</li>';
         } else {
           filteredData.forEach((wordObj) => {
             const li = document.createElement("li");
@@ -43,7 +43,7 @@ function resetWords() {
 function toggleCategories() {
   const dropdown = document.getElementById("categoriesDropdown");
   if (dropdown.style.maxHeight === "0px" || !dropdown.style.maxHeight) {
-    dropdown.style.maxHeight = "200px"; // You can adjust this value
+    dropdown.style.maxHeight = "250px";
   } else {
     dropdown.style.maxHeight = "0px";
   }
@@ -53,27 +53,48 @@ function fetchWordsForDictionary() {
   const startLetter = document.getElementById("startLetter").value;
   const endLetter = document.getElementById("endLetter").value;
   const wordLength = parseInt(document.getElementById("wordLength").value);
-  const wordList = document.getElementById("wordList");
+  const wordTableBody = document.querySelector(".dictionary-wordlist");
 
-  let apiUrl = `https://api.datamuse.com/words?sp=${startLetter}*${endLetter}`;
+  let apiUrl = `https://api.datamuse.com/words?sp=${startLetter}*${endLetter}&md=dpr`; // Added 'p' for pronunciation
 
   if (startLetter && endLetter) {
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
-        wordList.innerHTML = "";
+        wordTableBody.innerHTML = "";
         const filteredData = wordLength
           ? data.filter((wordObj) => wordObj.word.length === wordLength)
           : data;
         if (filteredData.length === 0) {
-          wordList.innerHTML =
-            '<div class="placeholder-message">No words found.</div>';
+          wordTableBody.innerHTML =
+            '<tr><td colspan="4" class="placeholder-message">No words found.</td></tr>';
         } else {
           filteredData.forEach((wordObj) => {
-            const li = document.createElement("li");
-            li.textContent = wordObj.word;
-            li.onclick = () => fetchWordDetails(wordObj.word);
-            wordList.appendChild(li);
+            const tr = document.createElement("tr");
+
+            const tdWord = document.createElement("td");
+            tdWord.textContent = wordObj.word;
+
+            const tdDefinition = document.createElement("td");
+            tdDefinition.textContent = wordObj.defs
+              ? wordObj.defs[0].split("\t")[1]
+              : "No definition found.";
+
+            const tdPartOfSpeech = document.createElement("td");
+            tdPartOfSpeech.textContent = wordObj.tags
+              ? wordObj.tags[0]
+              : "No part of speech found.";
+
+            const tdPronunciation = document.createElement("td");
+            tdPronunciation.textContent =
+              wordObj.pron || "No pronunciation found."; // Correctly handle absence of pronunciation
+
+            tr.appendChild(tdWord);
+            tr.appendChild(tdDefinition);
+            tr.appendChild(tdPartOfSpeech);
+            tr.appendChild(tdPronunciation);
+
+            wordTableBody.appendChild(tr);
           });
         }
       })

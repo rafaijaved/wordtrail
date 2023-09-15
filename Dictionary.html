@@ -56,16 +56,17 @@
         <button onclick="fetchWordsForDictionary()">Find Words</button>
         <button onclick="resetWords()" class="reset-button">Reset</button>
       </div>
-
-      <div class="content-wrapper">
-        <ul id="wordList"></ul>
-        <div id="wordDetails" class="word-details">
-          <h2 id="wordTitle"></h2>
-          <p id="wordDefinition"></p>
-          <p id="wordPartOfSpeech"></p>
-          <p id="wordPronunciation"></p>
-        </div>
-      </div>
+      <table id="wordTable">
+        <thead>
+          <tr>
+            <th>Word</th>
+            <th>Definition</th>
+            <th>Part of Speech</th>
+            <th>Pronunciation</th>
+          </tr>
+        </thead>
+        <tbody class="dictionary-wordlist"></tbody>
+      </table>
     </div>
     <script src="script.js"></script>
   </body>
