@@ -62,9 +62,12 @@ function fetchWordsForDictionary() {
       .then((response) => response.json())
       .then((data) => {
         wordTableBody.innerHTML = "";
-        const filteredData = wordLength
+        
+        // Filter based on word length and the existence of the defs property
+        const filteredData = (wordLength 
           ? data.filter((wordObj) => wordObj.word.length === wordLength)
-          : data;
+          : data).filter(wordObj => wordObj.defs && wordObj.defs.length);
+        
         if (filteredData.length === 0) {
           wordTableBody.innerHTML =
             '<tr><td colspan="4" class="placeholder-message">No words found.</td></tr>';
